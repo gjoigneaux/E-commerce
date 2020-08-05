@@ -1,59 +1,219 @@
-header{
-  background-color: #000;
-  color: #FFF;
-  height: 5.5rem;
+header {
+    background-color: #000;
+    color: #FFF;
+    height: 7rem;
 }
 
-header h1{
-  float: left; 
-  margin: 0 0 0 5%;
-  vertical-align: middle; 
-  line-height: 6rem;
+header h1 {
+    margin: 0;
+    text-align: center;
+    line-height: 5rem;
+    vertical-align: middle;
 }
 
-header nav{
-  float: right;
-  margin-right: 5%;
-  font-size: 1rem;
-  vertical-align: middle; 
-  line-height: 5.5rem;
+header nav {
+    text-align: center;
+    font-size: 1rem;
 }
 
-.nav_link, footer a{
-  text-decoration: none;
-  color: #FFF;
+.nav_link {
+    text-decoration: none;
+    color: #FFF;
 }
 
-.nav_link{
-  padding-right: 1rem;
+.nav_link {
+    padding-right: 1rem;
 }
 
-.nav_link:hover, footer a:hover{
-  color: #c6a7ff;
+.nav_link:hover, footer a:hover {
+    color: #c6a7ff;
 }
 
-.list-product {
-  margin-top: 1rem; 
+article {
+    border: 3px solid #c6a7ff;
+    width: 80%;
+    padding: 2vh;
+    margin: 1% auto 1% auto;
+    text-align: center;
 }
 
-.list-product_block {
-  border: 3px solid #c6a7ff;
-  width: 50%;
-  margin: 1%;
-  padding: 1%;
-  margin: 1% auto 1% auto; 
-  text-align: center;
+article img {
+    width: 90%;
 }
 
-.list-product_block img{
-  width: 90%;
+article h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #c6a7ff;
+}
+
+article p {
+    font-size: 1.5rem;
+}
+
+article a {
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: #000;
+    margin-bottom: 2vh;
+}
+
+article select {
+    margin-bottom: 2vh;
+    font-size: 1.25rem;
+}
+
+article button {
+    border: 1px solid #FFF;
+    color: #000;
+    background-color: #c6a7ff;
+    border-radius: 1rem;
+    height: 25%;
+    width: 50%;
+    padding: 2%;
+    margin-bottom: 2%;
+    font-size: 1.5rem;
+}
+
+article button:hover {
+    background-color: #c6a7ff;
+    color: #FFF;
+}
+
+#confirmOrder {
+    text-align: center;
+    font-size: 2rem;
+}
+
+#numOrder, #merci {
+    color: #c6a7ff;
 }
 
 footer {
-  text-align: center;
-  padding: 0.5rem;
-  background-color: #000; 
-  color: #FFF;
-  font-size: 1.2rem;
+    text-align: center;
+    padding: 5vh;
+    background-color: #000;
+    color: #FFF;
+    font-size: 1.2rem;
 }
 
+fieldset {
+    margin: 50px auto;
+    border: none;
+    background: rgba(230, 230, 230, 1);
+    border-radius: 3px;
+    border: 1px solid rgba(55, 55, 55, 1);
+    position: relative;
+    text-align: center;
+}
+
+input {
+    color: blue;
+}
+
+input[type="email"] {
+    color: red;
+}
+
+label {
+    display: inline-block;
+    width: 100%;
+}
+
+input[type="text"], input[type="email"] {
+    background: rgba(255, 255, 255, 1);
+    height: 40px;
+    width: 85%;
+    border: 1px solid rgba(55, 55, 55, 1);
+    padding: 0 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+input[type="email"]:focus:valid {
+    background: #ddffdd;
+}
+
+input[type="email"]:focus:invalid {
+    background: #ffdddd;
+}
+
+input:required {
+    border: 1px dashed orange;
+}
+
+input:optional {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+input::placeholder {
+    color: grey;
+    font-style: italic;
+}
+
+button {
+    text-decoration: none;
+    color: #F7F7F8;
+    display: block;
+    background: linear-gradient(to bottom, #FDD13B, #FEAE00);
+    padding: 20px 50px;
+    border-radius: 5px;
+    border: 1px solid #FEAE00;
+    box-shadow: 0 0 0 1px #FFF0D2 inset, 0 2px 2px #d0c2de;
+    margin: auto;
+}
+
+button:hover {
+    background: #FEAE00;
+}
+
+button:active {
+    background: #FEAE00;
+    box-shadow: 0 0px 10px rgba(178, 37, 78, 0.5) inset;
+}
+
+table {
+    margin-top: 20px;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+th {
+    background: #ccc;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+tr:hover {
+    background: #d1d1d1;
+}
+
+@media (min-width: 768px) {
+    #main_id {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    article {
+        flex: 0 40%;
+        text-align: center;
+    }
+    fieldset {
+        width: 550px;
+    }
+    label {
+        width: 150px;
+    }
+    input[type="text"], input[type="email"] {
+        width: 350px;
+    }
+    table {
+        width: 550px;
+    }
+}
