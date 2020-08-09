@@ -212,7 +212,7 @@ const template = {
     host: "http://localhost:3000/api/teddies/",
     tousLesProduits: function (produit) {
         return `
-        <img src="${produit.imageUrl}">
+        <img src="${produit.imageUrl}" alt="Ours en peluche">
         <h2>${produit.name}</h2>
         <p>${produit.price} €</p>
         <a href="product.html?id=${produit._id}" id="${produit._id}">En savoir plus</a>
@@ -222,7 +222,7 @@ const template = {
         const optionsColors = zoomProduit.colors.map((color) => `<option> ${color} </option>`);
         return `
         <article>
-            <img src="${zoomProduit.imageUrl}">
+            <img src="${zoomProduit.imageUrl}" alt="Ours en peluche">
             <h2>${zoomProduit.name}</h2>
             <p>${zoomProduit.description}</p>
             <p>${zoomProduit.price} €</p>
