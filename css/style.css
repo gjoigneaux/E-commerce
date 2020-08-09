@@ -1,6 +1,6 @@
 header {
     background-color: #000;
-    color: #FFF;
+    color: #fff;
     height: 7rem;
 }
 
@@ -18,7 +18,7 @@ header nav {
 
 .nav_link {
     text-decoration: none;
-    color: #FFF;
+    color: #fff;
 }
 
 .nav_link {
@@ -64,7 +64,7 @@ article select {
 }
 
 article button {
-    border: 1px solid #FFF;
+    border: 1px solid #fff;
     color: #000;
     background-color: #3e158a;
     border-radius: 1rem;
@@ -77,7 +77,7 @@ article button {
 
 article button:hover {
     background-color: #3e158a;
-    color: #FFF;
+    color: #fff;
 }
 
 #confirmOrder {
@@ -93,7 +93,7 @@ footer {
     text-align: center;
     padding: 5vh;
     background-color: #000;
-    color: #FFF;
+    color: #fff;
     font-size: 1.2rem;
 }
 
