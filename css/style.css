@@ -26,11 +26,11 @@ header nav {
 }
 
 .nav_link:hover, footer a:hover {
-    color: #c6a7ff;
+    color: #3e158a;
 }
 
 article {
-    border: 3px solid #c6a7ff;
+    border: 3px solid #3e158a;
     width: 80%;
     padding: 2vh;
     margin: 1% auto 1% auto;
@@ -44,7 +44,7 @@ article img {
 article h2 {
     font-size: 2rem;
     font-weight: bold;
-    color: #c6a7ff;
+    color: #3e158a;
 }
 
 article p {
@@ -66,7 +66,7 @@ article select {
 article button {
     border: 1px solid #FFF;
     color: #000;
-    background-color: #c6a7ff;
+    background-color: #3e158a;
     border-radius: 1rem;
     height: 25%;
     width: 50%;
@@ -76,7 +76,7 @@ article button {
 }
 
 article button:hover {
-    background-color: #c6a7ff;
+    background-color: #3e158a;
     color: #FFF;
 }
 
@@ -86,7 +86,7 @@ article button:hover {
 }
 
 #numOrder, #merci {
-    color: #c6a7ff;
+    color: #3e158a;
 }
 
 footer {
