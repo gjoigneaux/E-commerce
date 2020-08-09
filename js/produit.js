@@ -53,9 +53,9 @@ async function zoomProduct() {
     const zoomProduit = await getProduits();
     const main = document.querySelector("main");
     main.innerHTML = template.unProduit(zoomProduit);
-   /**
-    * Ajouter au panier lors du clique
-    */
+    /**
+     * Ajouter au panier lors du clique
+     */
     const addToPanier = () => {
         const select = document.querySelector("select");
         const produits = {
@@ -135,39 +135,65 @@ JSON.parse(localStorage.getItem("userPanier")).forEach(() => {
  */
 async function envoiFormulaire() {
     const domTarget = document.querySelector("main");
-    const form = {
-        contact: {
-            firstName: document.querySelector("#nom").value,
-            lastName: document.querySelector("#prenom").value,
-            address: document.querySelector("#adresse").value,
-            city: document.querySelector("#ville").value,
-            email: document.querySelector("#email").value,
-        },
-        products: produitIdSubmit
-    };
-    if (produitIdSubmit.length == 0) {
-        domTarget.innerHTML = template.aucunProduit;
+    const firstNameValue = document.querySelector("#nom").value;
+    const lastNameValue = document.querySelector("#prenom").value;
+    const adressValue = document.querySelector("#adresse").value;
+    const cityValue = document.querySelector("#ville").value;
+    const emailValue = document.querySelector("#email").value;
+    const checkEmail = /^[a-z\d_\-]+(\.[\a-z\d\-]+)*@[a-z\d\-]+(\.[a-z\d]+)+$/;
+    if (firstNameValue.length < 3) {
+        alert("Veuillez saisir un nom correct")
+    }
+    else if (lastNameValue.length < 3) {
+        alert("Veuillez saisir un prénom correct")
+    }
+    else if (adressValue.length < 5) {
+        alert("Veuillez saisir une adresse correct")
+    }
+    else if (cityValue.length < 3) {
+        alert("Veuillez saisir une ville correct")
+    }
+    else if (cityValue.length < 3) {
+        alert("Veuillez saisir une ville correct")
+    }
+    else if (!checkEmail.test(emailValue)) {
+        alert("Veuillez saisir un email correct")
     }
     else {
-        domTarget.innerHTML = template.envoiEnCours;
-        try {
-            let response = await fetch(template.host + "order", {
-                method: 'post',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(form)
-            });
-            if (response.status < 300) {
-                response = await response.json();
-                domTarget.innerHTML = template.orderConfirm(response);
-                localStorage.clear();
-                return;
-            }
-            errorMsg("request status : " + response.status);
+        const form = {
+            contact: {
+                firstName: firstNameValue,
+                lastName: lastNameValue,
+                address: adressValue,
+                city: cityValue,
+                email: emailValue
+            },
+            products: produitIdSubmit
+        };
+        if (produitIdSubmit.length == 0) {
+            domTarget.innerHTML = template.aucunProduit;
         }
-        catch (e) { errorMsg(e) };
+        else {
+            domTarget.innerHTML = template.envoiEnCours;
+            try {
+                let response = await fetch(template.host + "order", {
+                    method: 'post',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(form)
+                });
+                if (response.status < 300) {
+                    response = await response.json();
+                    domTarget.innerHTML = template.orderConfirm(response);
+                    localStorage.clear();
+                    return;
+                }
+                errorMsg("request status : " + response.status);
+            }
+            catch (e) { errorMsg(e) };
+        }
     }
 };
 
@@ -180,7 +206,7 @@ const errorMsg = (err) => {
 
 /**
  * VARIABLES VISUELS
- */ 
+ */
 
 const template = {
     host: "http://localhost:3000/api/teddies/",
@@ -248,8 +274,8 @@ const template = {
         </form>
          `
     },
-    envoiEnCours : `<p id="confirmOrder">Envoi en cours.<br><span id="merci">Merci de bien vouloir patienter.</span></p>`,
-    aucunProduit : `<p id="confirmOrder">Aucun produit dans le panier.<br><span id="merci">Merci de bien vouloir ajouter un produit au panier.</span></p>`,
+    envoiEnCours: `<p id="confirmOrder">Envoi en cours.<br><span id="merci">Merci de bien vouloir patienter.</span></p>`,
+    aucunProduit: `<p id="confirmOrder">Aucun produit dans le panier.<br><span id="merci">Merci de bien vouloir ajouter un produit au panier.</span></p>`,
     orderConfirm: function (response) {
         return `
         <p id="confirmOrder">La commande numéro 
