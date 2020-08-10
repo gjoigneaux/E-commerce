@@ -22,11 +22,6 @@ header nav {
     padding-right: 1rem;
 }
 
-.nav_link:hover,
-footer a:hover {
-    color: #3e158a;
-}
-
 article {
     border: 3px solid #3e158a;
     width: 80%;
@@ -76,6 +71,11 @@ article button {
 article button:hover {
     background-color: #3e158a;
     color: #fff;
+}
+
+.nav_link:hover,
+footer a:hover {
+    color: #3e158a;
 }
 
 #confirmOrder {
