@@ -25,7 +25,8 @@ header nav {
     padding-right: 1rem;
 }
 
-.nav_link:hover, footer a:hover {
+.nav_link:hover,
+footer a:hover {
     color: #3e158a;
 }
 
@@ -85,7 +86,8 @@ article button:hover {
     font-size: 2rem;
 }
 
-#numOrder, #merci {
+#numOrder,
+#merci {
     color: #3e158a;
 }
 
@@ -120,7 +122,8 @@ label {
     width: 100%;
 }
 
-input[type="text"], input[type="email"] {
+input[type="text"],
+input[type="email"] {
     background: rgba(255, 255, 255, 1);
     height: 40px;
     width: 85%;
@@ -185,7 +188,8 @@ th {
     background: #ccc;
 }
 
-th, td {
+th,
+td {
     border: 1px solid #ccc;
     padding: 8px;
 }
@@ -210,7 +214,8 @@ tr:hover {
     label {
         width: 150px;
     }
-    input[type="text"], input[type="email"] {
+    input[type="text"],
+    input[type="email"] {
         width: 350px;
     }
     table {
