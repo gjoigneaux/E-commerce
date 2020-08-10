@@ -1,7 +1,7 @@
 /**
  * Initialisation de l'id du produit
  */
-let productId = ''
+let productId = "";
 
 /**
  * Initialisation du panier
@@ -9,7 +9,7 @@ let productId = ''
 if (localStorage.getItem("userPanier") == undefined) {
     let panierInit = [];
     localStorage.setItem("userPanier", JSON.stringify(panierInit));
-};
+}
 
 /**
  * Initialisation de la variable userPanier
@@ -37,10 +37,10 @@ async function allProducts() {
         article.innerHTML = template.tousLesProduits(produit);
         main.appendChild(article);
         document.getElementById(id).addEventListener("click", () => {
-            localStorage.setItem('id', id);
+            localStorage.setItem("id", id);
         });
     });
-};
+}
 
 /**
  * Page du produit sélectionné
@@ -49,30 +49,31 @@ async function zoomProduct() {
     /**
      * Recherche de l'ID du produit sélectionné
      */
-    productId = localStorage.getItem('id');
+    productId = localStorage.getItem("id");
     const zoomProduit = await getProduits();
     const main = document.querySelector("main");
     main.innerHTML = template.unProduit(zoomProduit);
     /**
      * Ajouter au panier lors du clique
      */
-    const addToPanier = () => {
-        const select = document.querySelector("select");
-        const produits = {
-            name: zoomProduit.name,
-            id: zoomProduit._id,
-            description: zoomProduit.description,
-            prix: zoomProduit.price,
-            color: select.options[select.selectedIndex].value,
-            img: zoomProduit.imageUrl
-        }
-        userPanier.push(produits);
-        localStorage.setItem("userPanier", JSON.stringify(userPanier));
-        alert("Vous avez ajouté ce produit dans votre panier")
-    }
-    document.querySelector("#addToPanier").addEventListener("click", async function () {
-        addToPanier();
+    document.querySelector("#addToPanier").addEventListener("click", async function() {
+        addToPanier(zoomProduit);
     });
+}
+
+const addToPanier = (zoomProduit) => {
+    const select = document.querySelector("select");
+    const produits = {
+        name: zoomProduit.name,
+        id: zoomProduit._id,
+        description: zoomProduit.description,
+        prix: zoomProduit.price,
+        color: select.options[select.selectedIndex].value,
+        img: zoomProduit.imageUrl
+    };
+    userPanier.push(produits);
+    localStorage.setItem("userPanier", JSON.stringify(userPanier));
+    alert("Vous avez ajouté ce produit dans votre panier");
 };
 
 /**
@@ -108,20 +109,20 @@ const panier = () => {
     const supprimerProduit = (i) => {
         userPanier.splice(i, 1);
         localStorage.clear();
-        localStorage.setItem('userPanier', JSON.stringify(userPanier));
+        localStorage.setItem("userPanier", JSON.stringify(userPanier));
         window.location.reload();
     };
 
     const removeProduit = document.querySelectorAll("i");
     removeProduit.forEach((i) => {
-        i.addEventListener('click', () => supprimerProduit(i));
+        i.addEventListener("click", () => supprimerProduit(i));
     });
-}
+};
 
 /**
  * Recuperation des ID des produits présent dans le panier
  */
-const panierSubmit = localStorage.getItem('userPanier');
+const panierSubmit = localStorage.getItem("userPanier");
 let produitIdSubmit = [];
 let x = 0;
 JSON.parse(localStorage.getItem("userPanier")).forEach(() => {
@@ -140,26 +141,18 @@ async function envoiFormulaire() {
     const adressValue = document.querySelector("#adresse").value;
     const cityValue = document.querySelector("#ville").value;
     const emailValue = document.querySelector("#email").value;
-    const checkEmail = /^[a-z\d_\-]+(\.[\a-z\d\-]+)*@[a-z\d\-]+(\.[a-z\d]+)+$/;
+    const checkEmail = /^[a-z\d_-]+(.[a-z\d-]+)*@[a-z\d-]+(\.[a-z\d]+)+$/;
     if (firstNameValue.length < 3) {
-        alert("Veuillez saisir un nom correct")
-    }
-    else if (lastNameValue.length < 3) {
-        alert("Veuillez saisir un prénom correct")
-    }
-    else if (adressValue.length < 5) {
-        alert("Veuillez saisir une adresse correct")
-    }
-    else if (cityValue.length < 3) {
-        alert("Veuillez saisir une ville correct")
-    }
-    else if (cityValue.length < 3) {
-        alert("Veuillez saisir une ville correct")
-    }
-    else if (!checkEmail.test(emailValue)) {
-        alert("Veuillez saisir un email correct")
-    }
-    else {
+        alert("Veuillez saisir un nom correct");
+    } else if (lastNameValue.length < 3) {
+        alert("Veuillez saisir un prénom correct");
+    } else if (adressValue.length < 5) {
+        alert("Veuillez saisir une adresse correct");
+    } else if (cityValue.length < 3) {
+        alert("Veuillez saisir une ville correct");
+    } else if (!checkEmail.test(emailValue)) {
+        alert("Veuillez saisir un email correct");
+    } else {
         const form = {
             contact: {
                 firstName: firstNameValue,
@@ -172,15 +165,14 @@ async function envoiFormulaire() {
         };
         if (produitIdSubmit.length == 0) {
             domTarget.innerHTML = template.aucunProduit;
-        }
-        else {
+        } else {
             domTarget.innerHTML = template.envoiEnCours;
             try {
                 let response = await fetch(template.host + "order", {
-                    method: 'post',
+                    method: "post",
                     headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
+                        "Accept": "application/json",
+                        "Content-Type": "application/json"
                     },
                     body: JSON.stringify(form)
                 });
@@ -191,11 +183,10 @@ async function envoiFormulaire() {
                     return;
                 }
                 errorMsg("request status : " + response.status);
-            }
-            catch (e) { errorMsg(e) };
+            } catch (e) { errorMsg(e); }
         }
     }
-};
+}
 
 const errorMsg = (err) => {
     document.querySelector("main").innerHTML = template.problemeTech;
@@ -210,15 +201,15 @@ const errorMsg = (err) => {
 
 const template = {
     host: "http://localhost:3000/api/teddies/",
-    tousLesProduits: function (produit) {
+    tousLesProduits: function(produit) {
         return `
         <img src="${produit.imageUrl}" alt="Ours en peluche">
         <h2>${produit.name}</h2>
         <p>${produit.price} €</p>
         <a href="product.html?id=${produit._id}" id="${produit._id}">En savoir plus</a>
-        `
+        `;
     },
-    unProduit: function (zoomProduit) {
+    unProduit: function(zoomProduit) {
         const optionsColors = zoomProduit.colors.map((color) => `<option> ${color} </option>`);
         return `
         <article>
@@ -230,9 +221,9 @@ const template = {
             <br>
             <button id="addToPanier">Ajouter au panier</button>
         </article>
-        `
+        `;
     },
-    lignePanier: function (produit) {
+    lignePanier: function(produit) {
         return `
             <tr>
 		        <td>${produit.name}</td>
@@ -240,9 +231,9 @@ const template = {
 		        <td>${produit.prix} €</td>
 		        <td><i class="fas fa-trash-alt" aria-hidden="true"></i></td>
 	        </tr>
-        `
+        `;
     },
-    panier: function (lignes, total) {
+    panier: function(lignes, total) {
         return `
         <table>
             <tr>
@@ -272,18 +263,18 @@ const template = {
                 <button onclick="envoiFormulaire()">Envoyer</button>
             </fieldset>
         </form>
-         `
+         `;
     },
-    envoiEnCours: `<p id="confirmOrder">Envoi en cours.<br><span id="merci">Merci de bien vouloir patienter.</span></p>`,
-    aucunProduit: `<p id="confirmOrder">Aucun produit dans le panier.<br><span id="merci">Merci de bien vouloir ajouter un produit au panier.</span></p>`,
-    orderConfirm: function (response) {
+    envoiEnCours: "<p id='confirmOrder'>Envoi en cours.<br><span id='merci'>Merci de bien vouloir patienter.</span></p>",
+    aucunProduit: "<p id='confirmOrder'>Aucun produit dans le panier.<br><span id='merci'>Merci de bien vouloir ajouter un produit au panier.</span></p>",
+    orderConfirm: function(response) {
         return `
         <p id="confirmOrder">La commande numéro 
         <br> 
         <span id=numOrder>${response.orderId}</span>
         <br> 
         a bien été prise en compte.<br><br> <span id="merci">Merci de votre fidélité.</span></p>
-        `
+        `;
     },
-    problemeTech: `<p id="confirmOrder">Nous avons rencontré un problème technique.<br><span id="merci">Merci de bien vouloir réessayer.</span></p>`
-}
+    problemeTech: "<p id='confirmOrder'>Nous avons rencontré un problème technique.<br><span id='merci'>Merci de bien vouloir réessayer.</span></p>"
+};
