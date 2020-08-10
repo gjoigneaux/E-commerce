@@ -131,11 +131,11 @@ input[type="email"] {
 }
 
 input[type="email"]:focus:valid {
-    background: #ddffdd;
+    background: #dfd;
 }
 
 input[type="email"]:focus:invalid {
-    background: #ffdddd;
+    background: #dfd;
 }
 
 input:required {
