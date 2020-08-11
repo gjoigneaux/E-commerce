@@ -1,220 +1,220 @@
 header {
-    background-color: #000;
-    color: #fff;
-    height: 7rem;
+  background-color: #000;
+  color: #fff;
+  height: 7rem;
 }
 
 header h1 {
-    margin: 0;
-    text-align: center;
-    line-height: 5rem;
-    vertical-align: middle;
+  margin: 0;
+  text-align: center;
+  line-height: 5rem;
+  vertical-align: middle;
 }
 
 header nav {
-    text-align: center;
-    font-size: 1rem;
+  text-align: center;
+  font-size: 1rem;
 }
 
 .nav_link {
-    text-decoration: none;
-    color: #fff;
-    padding-right: 1rem;
+  text-decoration: none;
+  color: #fff;
+  padding-right: 1rem;
 }
 
 article {
-    border: 3px solid #3e158a;
-    width: 80%;
-    padding: 2vh;
-    margin: 1% auto 1% auto;
-    text-align: center;
+  border: 3px solid #3e158a;
+  width: 80%;
+  padding: 2vh;
+  margin: 1% auto 1% auto;
+  text-align: center;
 }
 
 article img {
-    width: 90%;
+  width: 90%;
 }
 
 article h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #3e158a;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #3e158a;
 }
 
 article p {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 article a {
-    font-size: 1.25rem;
-    text-decoration: none;
-    color: #000;
-    margin-bottom: 2vh;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: #000;
+  margin-bottom: 2vh;
 }
 
 article select {
-    margin-bottom: 2vh;
-    font-size: 1.25rem;
+  margin-bottom: 2vh;
+  font-size: 1.25rem;
 }
 
 article button {
-    border: 1px solid #fff;
-    color: #000;
-    background-color: #3e158a;
-    border-radius: 1rem;
-    height: 25%;
-    width: 50%;
-    padding: 2%;
-    margin-bottom: 2%;
-    font-size: 1.5rem;
+  border: 1px solid #fff;
+  color: #000;
+  background-color: #3e158a;
+  border-radius: 1rem;
+  height: 25%;
+  width: 50%;
+  padding: 2%;
+  margin-bottom: 2%;
+  font-size: 1.5rem;
 }
 
 article button:hover {
-    background-color: #3e158a;
-    color: #fff;
+  background-color: #3e158a;
+  color: #fff;
 }
 
 .nav_link:hover,
 footer a:hover {
-    color: #3e158a;
+  color: #3e158a;
 }
 
 #confirmOrder {
-    text-align: center;
-    font-size: 2rem;
+  text-align: center;
+  font-size: 2rem;
 }
 
 #numOrder,
 #merci {
-    color: #3e158a;
+  color: #3e158a;
 }
 
 footer {
-    text-align: center;
-    padding: 5vh;
-    background-color: #000;
-    color: #fff;
-    font-size: 1.2rem;
+  text-align: center;
+  padding: 5vh;
+  background-color: #000;
+  color: #fff;
+  font-size: 1.2rem;
 }
 
 fieldset {
-    margin: 50px auto;
-    background: rgba(230, 230, 230, 1);
-    border-radius: 3px;
-    border: 1px solid rgba(55, 55, 55, 1);
-    position: relative;
-    text-align: center;
+  margin: 50px auto;
+  background: rgba(230, 230, 230, 1);
+  border-radius: 3px;
+  border: 1px solid rgba(55, 55, 55, 1);
+  position: relative;
+  text-align: center;
 }
 
 input {
-    color: blue;
+  color: blue;
 }
 
 input[type="email"] {
-    color: red;
+  color: red;
 }
 
 label {
-    display: inline-block;
-    width: 100%;
+  display: inline-block;
+  width: 100%;
 }
 
 input[type="text"],
 input[type="email"] {
-    background: rgba(255, 255, 255, 1);
-    height: 40px;
-    width: 85%;
-    border: 1px solid rgba(55, 55, 55, 1);
-    padding: 0 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 1.1em;
+  background: rgba(255, 255, 255, 1);
+  height: 40px;
+  width: 85%;
+  border: 1px solid rgba(55, 55, 55, 1);
+  padding: 0 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 1.1em;
 }
 
 input[type="email"]:focus:valid {
-    background: #dfd;
+  background: #dfd;
 }
 
 input[type="email"]:focus:invalid {
-    background: #dfd;
+  background: #dfd;
 }
 
 input:required {
-    border: 1px dashed orange;
+  border: 1px dashed orange;
 }
 
 input:optional {
-    background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 input::placeholder {
-    color: grey;
-    font-style: italic;
+  color: grey;
+  font-style: italic;
 }
 
 button {
-    text-decoration: none;
-    color: #F7F7F8;
-    display: block;
-    background: linear-gradient(to bottom, #FDD13B, #FEAE00);
-    padding: 20px 50px;
-    border-radius: 5px;
-    border: 1px solid #FEAE00;
-    box-shadow: 0 0 0 1px #FFF0D2 inset, 0 2px 2px #d0c2de;
-    margin: auto;
+  text-decoration: none;
+  color: #F7F7F8;
+  display: block;
+  background: linear-gradient(to bottom, #FDD13B, #FEAE00);
+  padding: 20px 50px;
+  border-radius: 5px;
+  border: 1px solid #FEAE00;
+  box-shadow: 0 0 0 1px #FFF0D2 inset, 0 2px 2px #d0c2de;
+  margin: auto;
 }
 
 button:hover {
-    background: #FEAE00;
+  background: #FEAE00;
 }
 
 button:active {
-    background: #FEAE00;
-    box-shadow: 0 0px 10px rgba(178, 37, 78, 0.5) inset;
+  background: #FEAE00;
+  box-shadow: 0 0px 10px rgba(178, 37, 78, 0.5) inset;
 }
 
 table {
-    margin-top: 20px;
-    border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
 }
 
 th {
-    background: #ccc;
+  background: #ccc;
 }
 
 th,
 td {
-    border: 1px solid #ccc;
-    padding: 8px;
+  border: 1px solid #ccc;
+  padding: 8px;
 }
 
 tr:hover {
-    background: #d1d1d1;
+  background: #d1d1d1;
 }
 
 @media (min-width: 768px) {
-    #main_id {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-    }
-    article {
-        flex: 0 40%;
-        text-align: center;
-    }
-    fieldset {
-        width: 550px;
-    }
-    label {
-        width: 150px;
-    }
-    input[type="text"],
-    input[type="email"] {
-        width: 350px;
-    }
-    table {
-        width: 550px;
-    }
+  #main_id {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  article {
+    flex: 0 40%;
+    text-align: center;
+  }
+  fieldset {
+    width: 550px;
+  }
+  label {
+    width: 150px;
+  }
+  input[type="text"],
+  input[type="email"] {
+    width: 350px;
+  }
+  table {
+    width: 550px;
+  }
 }
