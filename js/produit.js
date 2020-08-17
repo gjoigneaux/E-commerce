@@ -1,9 +1,4 @@
 /**
- * Initialisation de l'id du produit
- */
-let productId = "";
-
-/**
  * Initialisation du panier
  */
 if (localStorage.getItem("userPanier") == undefined) {
@@ -19,8 +14,8 @@ let userPanier = JSON.parse(localStorage.getItem("userPanier"));
 /**
  * API
  */
-async function getProduits() {
-  let req = await fetch(template.host + productId);
+async function getProduits(id) {
+  let req = await fetch(template.host + id);
   const data = await req.json();
   return data;
 }
@@ -28,31 +23,28 @@ async function getProduits() {
 /**
  * Page de tous les produit
  */
-// eslint-disable-next-line no-unused-vars
 async function allProducts() {
-  const produits = await getProduits();
+  const produits = await getProduits('');
   produits.forEach(produit => {
     const main = document.querySelector("main");
     const article = document.createElement("article");
     const id = produit._id;
     article.innerHTML = template.tousLesProduits(produit);
     main.appendChild(article);
-    document.getElementById(id).addEventListener("click", () => {
-      localStorage.setItem("id", id);
-    });
   });
 }
 
 /**
  * Page du produit sélectionné
  */
-// eslint-disable-next-line no-unused-vars
 async function zoomProduct() {
   /**
   * Recherche de l'ID du produit sélectionné
   */
-  productId = localStorage.getItem("id");
-  const zoomProduit = await getProduits();
+  const url_string = window.location.href;
+  const url = new URL(url_string);
+  const c = url.searchParams.get("id");
+  const zoomProduit = await getProduits(c);
   const main = document.querySelector("main");
   main.innerHTML = template.unProduit(zoomProduit);
   /**
@@ -81,7 +73,6 @@ const addToPanier = (zoomProduit) => {
 /**
  * Page panier
  */
-// eslint-disable-next-line no-unused-vars
 const panier = () => {
   /**
   * Initilisation des variable
@@ -137,7 +128,6 @@ JSON.parse(localStorage.getItem("userPanier")).forEach(() => {
 /**
  * Envoi de la commande et confirmation
  */
-// eslint-disable-next-line no-unused-vars
 async function envoiFormulaire() {
   const domTarget = document.querySelector("main");    const firstNameValue = document.querySelector("#nom").value;
   const lastNameValue = document.querySelector("#prenom").value;
